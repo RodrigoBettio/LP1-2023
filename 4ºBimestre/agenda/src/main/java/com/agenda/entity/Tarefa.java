@@ -1,14 +1,36 @@
 package com.agenda.entity;
 
+import java.time.LocalDate;
+
 class Tarefa {
     private String titulo;
     private String descricao;
     private boolean concluida;
+    private String materia;
+    private LocalDate data;
 
-    public Tarefa(String titulo, String descricao) {
+    public Tarefa(String titulo, String descricao, String materia, LocalDate data) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.concluida = false;
+        this.materia = materia;
+        this.data = data;
+    }
+    
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
     public String getTitulo() {

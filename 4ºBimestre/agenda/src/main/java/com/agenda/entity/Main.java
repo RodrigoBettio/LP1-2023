@@ -52,8 +52,31 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    aplicativo.listarTarefas();
-                    break;
+                System.out.println("\nOpções de listagem:");
+                System.out.println("1. Listar todas as tarefas");
+                System.out.println("2. Filtrar tarefas por matéria");
+                int escolhaListagem = scanner.nextInt();
+                scanner.nextLine(); // Limpar a quebra de linha
+    
+                switch (escolhaListagem) {
+                    case 1:
+                        aplicativo.listarTarefas();
+                        break;
+                    case 2:
+                        System.out.print("Digite a matéria desejada: ");
+                        String materiaDesejada = scanner.nextLine();
+                        
+                        if (!materiaDesejada.isEmpty()) {
+                            aplicativo.listarTarefasPorMateria(materiaDesejada);
+                        } else {
+                            System.out.println("Matéria inválida. Tente novamente.");
+                        }
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Tente novamente.");
+                        break;
+                }
+                break;
                 case 2:
                     System.out.print("Título da tarefa: ");
                     String tituloTarefa = scanner.nextLine();
@@ -62,6 +85,7 @@ public class Main {
                     aplicativo.adicionarTarefa(tituloTarefa, descricaoTarefa);
                     break;
                 case 3:
+                    aplicativo.listarTarefas();
                     System.out.print("Índice da tarefa para marcar como concluída: ");
                     int indiceTarefa = scanner.nextInt();
                     aplicativo.marcarTarefaConcluida(indiceTarefa);
